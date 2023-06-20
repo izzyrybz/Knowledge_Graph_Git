@@ -224,60 +224,13 @@ def process_logfile(path):
 
 
     # To save the graph to a file
-    g.serialize(destination='commit_history_turtle_teammate_repo.ttl', format='turtle')
+    g.serialize(destination='commit_history_as_turtle_file.ttl', format='turtle')
 
 
 
-    ################################################## PUT THE GRAPH INTO JENA ###################################3
 
     return
-    
-    #okay cannot get this to work. moving on
-    '''store = sparqlstore.SPARQLUpdateStore(endpoint_uri='http://localhost:3030/test2/update')
-    g = Graph(store=store)
-    print(g)
-    g.parse("commit_history_turtle.ttl", format="turtle")
-
-    store = SPARQLStore('http://localhost:3030/test2/update')
-    g = Graph(store=store)
-    g.parse('commit_history_turtle.ttl', format="ttl")'''
-
-    '''
-    # Set up the TDB dataset
-    dataset_dir = "/path/to/my_dataset"
-    tdb_dataset = TDB.factory.create_dataset(dataset_dir)
-
-    # Load the TTL file into a Jena model
-    model = ModelFactory.create_default_model()
-    ttl_file = "/path/to/my_ttl_file.ttl"
-    model.read(ttl_file, format="ttl")
-
-    # Add the model to the TDB dataset
-    with tdb_dataset.begin(write=True) as tdb_txn:
-        tdb_txn.add(model)
-
-    # Close the TDB dataset
-    tdb_dataset.close()
-    
-    
-    query = """
-    SELECT ?subject ?predicate ?object
-    WHERE {
-    ?subject ?predicate ?object
-    }
-    """
-
-    response = requests.get("http://localhost:3030/dbpedia/sparql", params={"query": query})
-    ##TODO CHANGE THE http://example.com/sparql with the endpoint of our need.
-    #print(response)
-
-    if response.status_code == 200:
-        results = response.json()
-        
-        # Process the results
-    else:
-        print("Query failed with status code", response.status_code)'''
-
+ 
         
         
         
